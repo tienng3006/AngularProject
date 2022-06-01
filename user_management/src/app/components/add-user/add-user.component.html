@@ -1,0 +1,64 @@
+<form
+  cForm
+  class="row g-3"
+  (ngSubmit)="onSubmit()"
+  [validated]="customStylesValidated"
+>
+  <h2>Add User</h2>
+  <c-col [md]="6">
+    <label cLabel for="username">Username</label>
+    <input
+      cFormControl
+      id="username"
+      type="text"
+      name="username"
+      [(ngModel)]="username"
+      required
+    />
+    <c-form-feedback [valid]="false">Username is required.</c-form-feedback>
+  </c-col>
+  <c-col [md]="6">
+    <label cLabel for="password">Password</label>
+    <input
+      cFormControl
+      id="password"
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+    <c-form-feedback [valid]="false">Password is required.</c-form-feedback>
+  </c-col>
+  <c-col [xs]="12">
+    <label cLabel for="email">Email</label>
+    <input
+      cFormControl
+      id="email"
+      placeholder="@gmail.com"
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      required
+    />
+    <c-form-feedback [valid]="false">Email is required.</c-form-feedback>
+  </c-col>
+  <c-col [xs]="12">
+    <label cLabel for="address">Address</label>
+    <input
+      cFormControl
+      id="address"
+      placeholder="New York"
+      name="address"
+      [(ngModel)]="address"
+    />
+    <c-form-feedback [valid]="false">Address is required.</c-form-feedback>
+  </c-col>
+  <c-col [xs]="12">
+    <button cButton class="me-2" shape="rounded-pill" type="submit">
+      Add User
+    </button>
+    <button cButton color="secondary" shape="rounded-pill" type="reset">
+      Reset
+    </button>
+  </c-col>
+</form>

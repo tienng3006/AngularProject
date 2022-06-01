@@ -1,0 +1,46 @@
+<app-add-user (onAddUser)="addUser($event)"></app-add-user>
+<h3>Users Management</h3>
+<c-input-group class="flex-nowrap mb-3">
+  <span cInputGroupText id="addon-wrapping">
+    <svg [cIcon]="icons.cilSearch" size="l"></svg>
+  </span>
+  <input
+    aria-describedby="addon-wrapping"
+    aria-label="Username"
+    cFormControl
+    placeholder="Search"
+    [(ngModel)]="search"
+  />
+</c-input-group>
+<table cTable>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | filter: search">
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.address }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button cButton color="info" variant="ghost" (click)="change(user)">
+          <svg [cIcon]="icons.cilPencil" size="l"></svg>
+        </button>
+        <button
+          cButton
+          color="danger"
+          variant="ghost"
+          (click)="deleteUser(user)"
+        >
+          <svg [cIcon]="icons.cilTrash" size="l"></svg>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
